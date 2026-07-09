@@ -15,7 +15,7 @@ import jakarta.persistence.Table;
 public class Employee {
     
     @Id
-    @Column(name="employee_id")
+    @Column(name="employee_id")c
     private Integer employee_id;
 
     @Column(name = "employee_name")
