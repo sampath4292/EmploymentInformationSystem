@@ -16,45 +16,61 @@ public class Department {
     
     @Id
     @Column(name = "department_id")
-    private Integer department_id;
+    private Integer DepartmentId;
 
     @Column(name = "department_name")
-    private String department_name;
+    private String DepartmentName;
 
     @OneToMany(mappedBy="department")
-    List <Employee>employees;
+    private List <Employee>employees;
 
     @OneToOne
     @JoinColumn(name = "hod_employee_id")
     private Employee hod;
     
 
-    public Department(Integer department_id, String department_name) {
-        this.department_id = department_id;
-        this.department_name = department_name;
+    public Department(Integer DepartmentId, String DepartmentName) {
+        this.DepartmentId = DepartmentId;
+        this.DepartmentName = DepartmentName;
     }
 
     public Department(){}
 
-    public Integer getDepartment_id() {
-        return department_id;
+    public Integer getDepartmentId() {
+        return DepartmentId;
     }
 
-    public void setDepartment_id(Integer department_id) {
-        this.department_id = department_id;
+    public List<Employee> getEmployees() {
+        return employees;
     }
 
-    public String getDepartment_name() {
-        return department_name;
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 
-    public void setDepartment_name(String department_name) {
-        this.department_name = department_name;
+    public Employee getHod() {
+        return hod;
+    }
+
+    public void setHod(Employee hod) {
+        this.hod = hod;
+    }
+
+    public void setDepartmentId(Integer DepartmentId) {
+        this.DepartmentId = DepartmentId;
+    }
+
+    public String getDepartmentName() {
+        return DepartmentName;
+    }
+
+    public void setDepartmentName(String DepartmentName) {
+        this.DepartmentName = DepartmentName;
     }
 
     @Override
     public String toString() {
-        return "Department [department_id=" + department_id + ", department_name=" + department_name + ", toString()="
+        return "Department [DepartmentId=" + DepartmentId + ", DepartmentName=" + DepartmentName + ", toString()="
                 + super.toString() + "]";
     }
 
@@ -62,8 +78,8 @@ public class Department {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((department_id == null) ? 0 : department_id.hashCode());
-        result = prime * result + ((department_name == null) ? 0 : department_name.hashCode());
+        result = prime * result + ((DepartmentId == null) ? 0 : DepartmentId.hashCode());
+        result = prime * result + ((DepartmentName == null) ? 0 : DepartmentName.hashCode());
         return result;
     }
 
@@ -76,15 +92,15 @@ public class Department {
         if (getClass() != obj.getClass())
             return false;
         Department other = (Department) obj;
-        if (department_id == null) {
-            if (other.department_id != null)
+        if (DepartmentId == null) {
+            if (other.DepartmentId != null)
                 return false;
-        } else if (!department_id.equals(other.department_id))
+        } else if (!DepartmentId.equals(other.DepartmentId))
             return false;
-        if (department_name == null) {
-            if (other.department_name != null)
+        if (DepartmentName == null) {
+            if (other.DepartmentName != null)
                 return false;
-        } else if (!department_name.equals(other.department_name))
+        } else if (!DepartmentName.equals(other.DepartmentName))
             return false;
         return true;
     }

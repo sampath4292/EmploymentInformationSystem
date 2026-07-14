@@ -1,6 +1,6 @@
 package com.example.EmployeesInformationSystem.entity;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,11 +15,11 @@ import jakarta.persistence.Table;
 public class Employee {
     
     @Id
-    @Column(name="employee_id")c
-    private Integer employee_id;
+    @Column(name="EmployeeId")
+    private Integer EmployeeId;
 
-    @Column(name = "employee_name")
-    private String employee_name;
+    @Column(name = "EmployeeName")
+    private String EmployeeName;
 
     @ManyToOne
     @JoinColumn(name = "job_id")
@@ -30,10 +30,10 @@ public class Employee {
     private Department department;
 
     @Column(name = "employee_salary")
-    private Integer employee_salary;
+    private Integer EmployeeSalary;
 
     @Column(name = "employee_doj")
-    private Date date;
+    private Date DOJ;
 
     @OneToMany(mappedBy = "employee")
     private List<JobHistory> jobHistories;
@@ -41,30 +41,30 @@ public class Employee {
 
     public Employee(){}
 
-    public Employee(Integer employee_id, String employee_name, Job job, Department department, Integer employee_salary,
-            Date date) {
-        this.employee_id = employee_id;
-        this.employee_name = employee_name;
+    public Employee(Integer EmployeeId, String EmployeeName, Job job, Department department, Integer EmployeeSalary,
+            Date DOJ) {
+        this.EmployeeId = EmployeeId;
+        this.EmployeeName = EmployeeName;
         this.job = job;
         this.department = department;
-        this.employee_salary = employee_salary;
-        this.date = date;
+        this.EmployeeSalary = EmployeeSalary;
+        this.DOJ = DOJ;
     }
 
-    public Integer getEmployee_id() {
-        return employee_id;
+    public Integer getEmployeeId() {
+        return EmployeeId;
     }
 
-    public void setEmployee_id(Integer employee_id) {
-        this.employee_id = employee_id;
+    public void setEmployeeId(Integer EmployeeId) {
+        this.EmployeeId = EmployeeId;
     }
 
-    public String getEmployee_name() {
-        return employee_name;
+    public String getEmployeeName() {
+        return EmployeeName;
     }
 
-    public void setEmployee_name(String employee_name) {
-        this.employee_name = employee_name;
+    public void setEmployeeName(String EmployeeName) {
+        this.EmployeeName = EmployeeName;
     }
 
     public Job getJob() {
@@ -83,20 +83,20 @@ public class Employee {
         this.department = department;
     }
 
-    public Integer getEmployee_salary() {
-        return employee_salary;
+    public Integer getEmployeeSalary() {
+        return EmployeeSalary;
     }
 
-    public void setEmployee_salary(Integer employee_salary) {
-        this.employee_salary = employee_salary;
+    public void setEmployeeSalary(Integer EmployeeSalary) {
+        this.EmployeeSalary = EmployeeSalary;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getDOJ() {
+        return DOJ;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDOJ(Date DOJ) {
+        this.DOJ = DOJ;
     }
         public List<JobHistory> getJobHistories() {
         return jobHistories;
@@ -111,12 +111,12 @@ public class Employee {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((employee_id == null) ? 0 : employee_id.hashCode());
-        result = prime * result + ((employee_name == null) ? 0 : employee_name.hashCode());
+        result = prime * result + ((EmployeeId == null) ? 0 : EmployeeId.hashCode());
+        result = prime * result + ((EmployeeName == null) ? 0 : EmployeeName.hashCode());
         result = prime * result + ((job == null) ? 0 : job.hashCode());
         result = prime * result + ((department == null) ? 0 : department.hashCode());
-        result = prime * result + ((employee_salary == null) ? 0 : employee_salary.hashCode());
-        result = prime * result + ((date == null) ? 0 : date.hashCode());
+        result = prime * result + ((EmployeeSalary == null) ? 0 : EmployeeSalary.hashCode());
+        result = prime * result + ((DOJ == null) ? 0 : DOJ.hashCode());
         return result;
     }
 
@@ -129,15 +129,15 @@ public class Employee {
         if (getClass() != obj.getClass())
             return false;
         Employee other = (Employee) obj;
-        if (employee_id == null) {
-            if (other.employee_id != null)
+        if (EmployeeId == null) {
+            if (other.EmployeeId != null)
                 return false;
-        } else if (!employee_id.equals(other.employee_id))
+        } else if (!EmployeeId.equals(other.EmployeeId))
             return false;
-        if (employee_name == null) {
-            if (other.employee_name != null)
+        if (EmployeeName == null) {
+            if (other.EmployeeName != null)
                 return false;
-        } else if (!employee_name.equals(other.employee_name))
+        } else if (!EmployeeName.equals(other.EmployeeName))
             return false;
         if (job == null) {
             if (other.job != null)
@@ -149,23 +149,23 @@ public class Employee {
                 return false;
         } else if (!department.equals(other.department))
             return false;
-        if (employee_salary == null) {
-            if (other.employee_salary != null)
+        if (EmployeeSalary == null) {
+            if (other.EmployeeSalary != null)
                 return false;
-        } else if (!employee_salary.equals(other.employee_salary))
+        } else if (!EmployeeSalary.equals(other.EmployeeSalary))
             return false;
-        if (date == null) {
-            if (other.date != null)
+        if (DOJ == null) {
+            if (other.DOJ != null)
                 return false;
-        } else if (!date.equals(other.date))
+        } else if (!DOJ.equals(other.DOJ))
             return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return "Employee [employee_id=" + employee_id + ", employee_name=" + employee_name + ", job=" + job
-                + ", department=" + department + ", employee_salary=" + employee_salary + ", date=" + date
+        return "Employee [EmployeeId=" + EmployeeId + ", EmployeeName=" + EmployeeName + ", job=" + job
+                + ", department=" + department + ", EmployeeSalary=" + EmployeeSalary + ", DOJ=" + DOJ
                 + ", toString()=" + super.toString() + "]";
     }
 

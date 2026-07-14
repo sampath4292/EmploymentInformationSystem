@@ -13,36 +13,43 @@ import jakarta.persistence.Table;
 public class Job {
     @Id
     @Column(name = "job_id")
-    private Integer job_id;
+    private Integer JobId;
     @Column(name = "job_title")
-    private String job_title;
+    private String JobTitle;
 
     @OneToMany(mappedBy = "job")
-    List<Employee>employees;
+    private List<Employee>employees;
 
-    public Job(Integer job_id, String job_title) {
-    this.job_id = job_id;
-    this.job_title = job_title;
+    public Job(Integer JobId, String JobTitle) {
+    this.JobId = JobId;
+    this.JobTitle = JobTitle;
     }
 
     public Job(){}
 
-    public Integer getJob_id() {
-        return job_id;
+    public List<Employee> getEmployees() {
+    return employees;
     }
-    public void setJob_id(Integer job_id) {
-        this.job_id = job_id;
+
+    public void setEmployees(List<Employee> employees) {
+    this.employees = employees;
     }
-    public String getJob_title() {
-        return job_title;
+    public Integer getJobId() {
+        return JobId;
     }
-    public void setJob_title(String job_title) {
-        this.job_title = job_title;
+    public void setJobId(Integer JobId) {
+        this.JobId = JobId;
+    }
+    public String getJobTitle() {
+        return JobTitle;
+    }
+    public void setJobTitle(String JobTitle) {
+        this.JobTitle = JobTitle;
     }
 
     @Override
     public String toString() {
-        return "Job [job_id=" + job_id + ", job_title=" + job_title + ", hashCode()=" + hashCode() + ", toString()="
+        return "Job [JobId=" + JobId + ", JobTitle=" + JobTitle + ", hashCode()=" + hashCode() + ", toString()="
                 + super.toString() + "]";
     }
     
@@ -50,8 +57,8 @@ public class Job {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((job_id == null) ? 0 : job_id.hashCode());
-        result = prime * result + ((job_title == null) ? 0 : job_title.hashCode());
+        result = prime * result + ((JobId == null) ? 0 : JobId.hashCode());
+        result = prime * result + ((JobTitle == null) ? 0 : JobTitle.hashCode());
         return result;
     }
     
@@ -64,15 +71,15 @@ public class Job {
         if (getClass() != obj.getClass())
             return false;
         Job other = (Job) obj;
-        if (job_id == null) {
-            if (other.job_id != null)
+        if (JobId == null) {
+            if (other.JobId != null)
                 return false;
-        } else if (!job_id.equals(other.job_id))
+        } else if (!JobId.equals(other.JobId))
             return false;
-        if (job_title == null) {
-            if (other.job_title != null)
+        if (JobTitle == null) {
+            if (other.JobTitle != null)
                 return false;
-        } else if (!job_title.equals(other.job_title))
+        } else if (!JobTitle.equals(other.JobTitle))
             return false;
         return true;
     }

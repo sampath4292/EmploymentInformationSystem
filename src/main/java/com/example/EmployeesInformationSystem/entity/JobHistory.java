@@ -1,10 +1,10 @@
 package com.example.EmployeesInformationSystem.entity;
 
-import com.example.*;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "job_history")
 public class JobHistory {
 
     @EmbeddedId
